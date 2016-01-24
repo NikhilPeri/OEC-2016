@@ -24,7 +24,14 @@ void setup ()
   cp5.addSlider("test")
      .setRange(100,400)
      .setValue(200)
-     .setPosition(100,20)
+     .setPosition(10,10)
+     .setSize(100,19)
+     ;
+     
+     cp5.addSlider("test2")
+     .setRange(100,400)
+     .setValue(200)
+     .setPosition(10,40)
      .setSize(100,19)
      ;
      
