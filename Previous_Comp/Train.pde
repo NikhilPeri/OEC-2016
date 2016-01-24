@@ -93,7 +93,6 @@ class Train implements Comparable<Train> {
     while (speed > 0) {
       slowDown();
     }
-    calculateZones();
   }
   
   public void turnAround() {
