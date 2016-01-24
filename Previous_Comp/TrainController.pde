@@ -1,16 +1,32 @@
-import java.util.List;
-
+import java.util.ArrayList;
 
 class TrainController {
   Track[] tracks;
-  Train[] trains;
+  ArrayList<Train> trains;
   
-  public TrainController(Track[] tracks, Train[] trains){
+  public TrainController(Track[] tracks){
     this.tracks = tracks;
-    this.trains = trains;
+    this.trains = new ArrayList<Train>();
+  }
+  
+  public void addTrain(Train train, Track track){
+   this.trains.add(train); 
+   track.addTrain(train);
   }
   
   public Train[] updatePositions(){
-    
+    for(int i = 0;  i < trains.size(); i++){
+      Train train = trains.get(i)
+      for(int j = 0; j < trains.size(); j++){
+       if(i != j){
+         Train compTrain = trains.get(j);
+         
+         
+         
+       }
+      }
+    }
   }
+  
+  return trains.toArray();
 }

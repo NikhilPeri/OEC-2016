@@ -1,23 +1,50 @@
+import java.util.List;
+import java.lang.Math;
+import java.awt.Point;
+
 class Track{
-  int startX; 
-  int startY;
-  int endX; 
-  int endY;
+  public Point start; 
+  public Point end;
+  
+  public int distance;
+  
+  public boolean isVertical = false;
+  public boolean isHorizontal = false;
+  
+  public List<Train> trains;
   
   public Track(int startX, int startY, int endX, int endY){
-   this.startX = startX;
-   this.startY = startY;  
-   this.endX = endX;
-   this.endY = endY;
+   this.start = new Point(startX, startY);
+   this.end = new Point(endX, endY);
+   
+   this.distance = Math.sqrt((double)(Math.pow(startX - endX, 2) + Math.pow(startY - endY, 2)));
+   
+   isVertical = (startX == endX);
+   isHorizontal = (startY == endY);
+   
+   trains = new LinkedList<Train>();
+ }
+ 
+ public void addTrain(Train train){
+   this.trains.add(train);
+ }
+ 
+ public void removeTrain(Train train){
+  this.trains.remove(train); 
  }
  
  public boolean inLine(int xPos, int yPos) {
    // if AC is horizontal
-   if (startX == xPos) return endX == xPos;
+   if (start.getX() == xPos) return end.getX() == xPos;
    // if AC is vertical.
-   if (startY == yPos) return endY == yPos;
+   if (start.getY() == yPos) return end.getY() == yPos;
    // match the gradients
-   return (startX - xPos)*(startY - yPos) == (xPos - endX)*(yPos - endY);
+   return (start.getX() - xPos)*(start.getY() - yPos) == (xPos - end.getX())*(yPos - end.getY());
+ }
+ 
+ public boolean atEnd(int xPos, int yPos){
+  return ((xPos == start.getX())&&(yPos == start.getY()))
+          ||((xPos == end.getX())&&(yPos == end.getY()));
  }
  
 }
