@@ -11,9 +11,9 @@ void setup ()
   background(255);
   
   cp5 = new ControlP5(this);
-
   
   t1 = new Track[6];
+  
   t1[0] = new Track(310, 100, 836, 100);
   t1[1] = new Track(836, 120, 310, 120);
   t1[2] = new Track(713, 10, 713, 690);
@@ -31,7 +31,9 @@ void setup ()
 }
 
 void draw ()
-{ 
+{
+  
+  
   stroke(255);
   fill(#ED0202);
   rect(t1[0].startX, t1[0].startY, t1[0].endX - t1[0].startX, t1[0].endY - t1[0].startY + 10);

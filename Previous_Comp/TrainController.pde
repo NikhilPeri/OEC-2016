@@ -25,7 +25,13 @@ class TrainController {
          
        }
       }
+<<<<<<< HEAD
     }
       return (Train[])(trains.toArray());
   }  
+=======
+    }  
+  return (Train[]) (trains.toArray());
+}
+>>>>>>> c2dde8733e7fced9a1c8d5c0dc7cf9226d7b39c6
 }

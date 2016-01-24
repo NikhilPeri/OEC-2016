@@ -33,6 +33,23 @@ class Track{
   this.trains.remove(train); 
  }
  
+ public String getFlow(){
+  if(isVertical && !isHorizontal){
+   if(start.getY() < end.getY()){
+    return "SOUTH"; 
+   } else {
+    return "NORTH"; 
+   }
+  } else {
+    if(start.getX() < end.getX()){
+    return "EAST"; 
+   } else {
+    return "WEST"; 
+   }
+    
+  }
+ }
+ 
  public boolean inLine(int xPos, int yPos) {
    // if AC is horizontal
    if (start.getX() == xPos) return end.getX() == xPos;
