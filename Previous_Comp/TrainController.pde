@@ -26,6 +26,7 @@ class TrainController {
        }
       }
     }
+    return null;
   }
   
   return trains.toArray();
