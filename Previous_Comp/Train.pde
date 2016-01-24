@@ -13,14 +13,14 @@ class Train {
  }
  
  public Train(int coordinate) {
-   this(coordinate, null);
- }
- 
- public Train(int coordinate, Track startingTrack) {
-    track = startingTrack;
    speed = 0;
    this.coordinate = coordinate;
-   calculateZones();    
+   calculateZones(); 
+ }
+ 
+ public Train(Track startingTrack) { 
+    this(0);
+    track = startingTrack;  
  }
  
  public int getCoordinate() {
