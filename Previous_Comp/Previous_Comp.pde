@@ -1,8 +1,11 @@
 import controlP5.*;
+import java.util.ArrayList; 
 
 Track[] t1;
 Train train1;
 TrainController control;
+
+ArrayList<Train> ttemp;
 
 ControlP5 cp5;
 
@@ -26,7 +29,7 @@ void setup ()
   
   control = new TrainController(t1);
 
-  train1 = new Train(t[0]);
+  train1 = new Train(t1[0]);
   
   control.addTrain(train1, t1[0]);
   
@@ -56,6 +59,9 @@ void draw ()
   rect(t1[3].getSX(), t1[3].getEY(), t1[3].getEX() - t1[3].getSX() + 10, t1[3].getSY() - t1[3].getEY());
   rect(t1[4].getSX(), t1[4].getSY(), t1[4].getEX() - t1[4].getSX(), t1[4].getEY() - t1[4].getSY() + 10);
   rect(t1[5].getEX(), t1[5].getSY(), t1[5].getSX() - t1[5].getEX(), t1[5].getEY() - t1[5].getSY() + 10);
+  
+  ttemp = control.updatePositions();
+  ellipse((float)ttemp.get(0).getFrontPoint().getX(), (float)ttemp.get(0).getFrontPoint().getY(), 10, 10);
   
   stroke(0);
   line (300, 0, 300, 700);

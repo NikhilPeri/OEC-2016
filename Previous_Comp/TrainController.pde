@@ -17,13 +17,12 @@ class TrainController {
    track.addTrain(train);
   }
   
-  public Train[] updatePositions(){
+  public ArrayList<Train> updatePositions(){
     for(int i = 0;  i < trains.size(); i++){
       Train train = trains.get(i);
       
       Line2D blueLine = new Line2D.Double(train.getBackPoint(), train.getBluePoint());
       Line2D redLine = new Line2D.Double(train.getFrontPoint(), train.getRedPoint());
-<<<<<<< HEAD
       Line2D yellowLine = new Line2D.Double(train.getFrontPoint(), train.getYellowPoint());
       Line2D trainLine = new Line2D.Double(train.getFrontPoint(), train.getBackPoint());
       
@@ -47,6 +46,6 @@ class TrainController {
        }
       }
     }
-    return (Train[])(trains.toArray());
+    return trains;
   }  
 }  
