@@ -23,6 +23,7 @@ class TrainController {
       
       Line2D blueLine = new Line2D.Double(train.getBackPoint(), train.getBluePoint());
       Line2D redLine = new Line2D.Double(train.getFrontPoint(), train.getRedPoint());
+<<<<<<< HEAD
       Line2D yellowLine = new Line2D.Double(train.getFrontPoint(), train.getYellowPoint());
       Line2D trainLine = new Line2D.Double(train.getFrontPoint(), train.getBackPoint());
       
@@ -43,7 +44,6 @@ class TrainController {
          } else {
            train.accelerate();
          }
-         
        }
       }
     }

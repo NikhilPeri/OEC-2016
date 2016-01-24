@@ -1,4 +1,4 @@
-import java.awt.Point;
+import java.awt.geom.Point2D;
 
 class Train implements Comparable<Train> {
   
@@ -39,7 +39,7 @@ class Train implements Comparable<Train> {
     return frontCoordinate;
   }
   
-  public Point getFrontPoint() {
+  public Point2D getFrontPoint() {
     return convertCoordinateToPoint(frontCoordinate);
   }
 
@@ -52,7 +52,7 @@ class Train implements Comparable<Train> {
     return backCoordinate;
   }
   
-  public Point getBackPoint() {
+  public Point2D getBackPoint() {
     return convertCoordinateToPoint(backCoordinate);
   }
   
@@ -81,15 +81,15 @@ class Train implements Comparable<Train> {
     this.id = id;
   }
   
-  public Point getRedPoint() {
+  public Point2D getRedPoint() {
     return convertCoordinateToPoint(frontCoordinate + (int)(redZone));
   }
   
-  public Point getYellowPoint() {
+  public Point2D getYellowPoint() {
     return convertCoordinateToPoint(frontCoordinate + (int)(yellowZone));
   }
   
-  public Point getBluePoint() {
+  public Point2D getBluePoint() {
     return convertCoordinateToPoint(backCoordinate - (int)(blueZone));
   }
 
@@ -141,11 +141,12 @@ class Train implements Comparable<Train> {
       blueZone = speed == 0 ? 100 : -0.35 * speed + 100;
   }
   
-  private Point convertCoordinateToPoint(int coordinate) {
+  private Point2D convertCoordinateToPoint(int coordinate) {
     String direction = track.getFlow();
-    if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("west"))
-      return new Point((int) (track.start.getX()), coordinate);
-    return new Point(coordinate, (int) (track.start.getY()));    
+    if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("west")) {
+      return new Point2D.Double(track.start.getX(), coordinate);
+    }
+    return new Point2D.Double(coordinate, track.start.getY());    
   }
   
   @Override
