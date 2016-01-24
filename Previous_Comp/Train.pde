@@ -44,6 +44,11 @@ class Train implements Comparable<Train> {
   public int getBackCoordinate() {
     return backCoordinate;
   }
+  
+  public void updateBackCoordinate(int backCoordinate) {
+    this.backCoordinate = backCoordinate;
+    frontCoordinate = backCoordinate - LENGTH;
+  }
 
   public double getSpeed() {
     return speed;
