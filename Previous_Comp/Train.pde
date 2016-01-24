@@ -1,12 +1,13 @@
-class Train {
-  static final String MOVING = "In Motion";
-  static final String IDLE = "Idling";
-  static final String OOS = "Out of Service";
-  static final String EMR = "Emergency Medical Response";
+class Train implements Comparable<Train> {
+  private static final String MOVING = "In Motion";
+  private static final String IDLE = "Idling";
+  private static final String OOS = "Out of Service";
+  private static final String EMR = "Emergency Medical Response";
   private static final double MAX_SPEED = 88.0;
   private static final int LENGTH = 144;
 
   private int frontCoordinate;
+  private int backCoordinate;
   private int id;
   private double speed;
   private String state;
@@ -27,7 +28,7 @@ class Train {
   public Train(int frontCoordinate) {
     speed = 0;
     state = IDLE;
-    this.frontCoordinate = frontCoordinate;
+    updateFrontCoordinate(frontCoordinate);
     calculateZones();
   }
 
@@ -37,6 +38,11 @@ class Train {
 
   public void updateFrontCoordinate(int frontCoordinate) {
     this.frontCoordinate = frontCoordinate;
+    backCoordinate = frontCoordinate + LENGTH;
+  }
+  
+  public int getBackCoordinate() {
+    return backCoordinate;
   }
 
   public double getSpeed() {
@@ -77,5 +83,10 @@ class Train {
       yellowZone = 100.0;
       blueZone = 100.0;
     }
+  }
+  
+  @Override
+  public int compareTo(Train o) {
+    return backCoordinate - o.getFrontCoordinate();
   }
 }
