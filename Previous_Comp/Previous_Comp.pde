@@ -1,6 +1,9 @@
 import controlP5.*;
 
 Track[] t1;
+Train train1;
+TrainController control;
+
 ControlP5 cp5;
 
 public int changeWidth;
@@ -21,6 +24,12 @@ void setup ()
   t1[4] = new Track(310, 517, 1190, 517);
   t1[5] = new Track(1190, 537, 310, 537);
   
+  control = new TrainController(t1);
+
+  train1 = new Train(t[0]);
+  
+  control.addTrain(train1, t1[0]);
+  
   cp5.addSlider("test")
      .setRange(100,400)
      .setValue(200)
@@ -39,8 +48,6 @@ void setup ()
 
 void draw ()
 {
-  
-  
   stroke(255);
   fill(#ED0202);
   rect(t1[0].getSX(), t1[0].getSY(), t1[0].getEX() - t1[0].getSX(), t1[0].getEY() - t1[0].getSY() + 10);
