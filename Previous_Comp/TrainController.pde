@@ -11,6 +11,6 @@ class TrainController {
   }
   
   public Train[] updatePositions(){
-    
+    return null;
   }
 }
