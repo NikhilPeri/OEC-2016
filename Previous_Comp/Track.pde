@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.LinkedList;
 import java.lang.Math;
 import java.awt.Point;
 
@@ -11,13 +11,13 @@ class Track{
   public boolean isVertical = false;
   public boolean isHorizontal = false;
   
-  public List<Train> trains;
+  public LinkedList<Train> trains;
   
   public Track(int startX, int startY, int endX, int endY){
    this.start = new Point(startX, startY);
    this.end = new Point(endX, endY);
    
-   this.distance = Math.sqrt((double)(Math.pow(startX - endX, 2) + Math.pow(startY - endY, 2)));
+   this.distance = Math.sqrt((Math.pow(startX - endX, 2) + Math.pow(startY - endY, 2)));
    
    isVertical = (startX == endX);
    isHorizontal = (startY == endY);

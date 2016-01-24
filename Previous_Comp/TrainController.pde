@@ -22,7 +22,6 @@ class TrainController {
          Train compTrain = trains.get(j);
          
          
-         
        }
       }
 <<<<<<< HEAD
