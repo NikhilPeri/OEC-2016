@@ -62,25 +62,45 @@ class Train implements Comparable<Train> {
   public void changeTrack(Track newTrack) {
     track = newTrack;
   }
+  
+  public int getID() {
+    return id;
+  }
+  
+  public void setID(int id) {
+    this.id = id;
+  }
 
   public void accelerate() {
     speed += 10; //Replace with actual number
+    state = MOVING;
     if (speed > MAX_SPEED) {
       speed = MAX_SPEED;
     }
+    calculateZones();
   }
 
   public void slowDown() {
     speed -= 10; //Replace with actual number
     if (speed < 0) {
       speed = 0;
+      state = IDLE;
     }
+    calculateZones();
   }
 
   public void activateBreak() {
     while (speed > 0) {
       slowDown();
     }
+    calculateZones();
+  }
+  
+  public void turnAround() {
+    activateBreak();
+    int temp = frontCoordinate;
+    frontCoordinate = backCoordinate;
+    backCoordinate = temp;
   }
 
   public void calculateZones() {
