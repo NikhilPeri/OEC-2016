@@ -4,6 +4,7 @@ class Train {
  private double yellowZone;
  private double redZone;
  private double blueZone;
+ private Track track;
  
  private static final double MAX_SPEED = 88.0;
  
@@ -12,9 +13,14 @@ class Train {
  }
  
  public Train(int coordinate) {
+   this(coordinate, null);
+ }
+ 
+ public Train(int coordinate, Track startingTrack) {
+    track = startingTrack;
    speed = 0;
    this.coordinate = coordinate;
-   calculateZones();
+   calculateZones();    
  }
  
  public int getCoordinate() {
@@ -27,6 +33,14 @@ class Train {
  
  public double getSpeed() {
    return speed;
+ }
+ 
+ public Track getCurrentTrack() {
+   return track;
+ }
+ 
+ public void setTrack(Track newTrack) {
+   track = newTrack;
  }
  
  public void slowDown() {
