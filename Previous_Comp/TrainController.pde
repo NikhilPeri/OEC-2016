@@ -25,12 +25,10 @@ class TrainController {
       Line2D redLine = new Line2D.Double(train.getFrontPoint(), train.getRedPoint());
       Line2D yellowLine = new Line2D.Double(train.);
       Line2D trainLine = new Line2D.Double();
-      
+     
       for(int j = 0; j < trains.size(); j++){
        if(i != j){
          Train compTrain = trains.get(j);
-         
-         
        }
       }
     }
