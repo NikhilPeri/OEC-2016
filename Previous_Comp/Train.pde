@@ -1,3 +1,5 @@
+import java.awt.Point;
+
 class Train implements Comparable<Train> {
   
   private static final String MOVING = "In Motion";
@@ -36,6 +38,13 @@ class Train implements Comparable<Train> {
   public int getFrontCoordinate() {
     return frontCoordinate;
   }
+  
+  public Point getFrontPoint() {
+    String direction = track.getFlow();
+    if (direction.equals("EAST") || direction.equals("WEST"))
+      return new Point((int) (track.start.getX()), frontCoordinate);
+    return new Point(frontCoordinate, (int)(track.start.getY()));
+  }
 
   public void updateFrontCoordinate(int frontCoordinate) {
     this.frontCoordinate = frontCoordinate;
@@ -44,6 +53,10 @@ class Train implements Comparable<Train> {
   
   public int getBackCoordinate() {
     return backCoordinate;
+  }
+  
+  public Point getBackPoint() {
+    return new Point((int) (track.start.getX()), backCoordinate);
   }
   
   public void updateBackCoordinate(int backCoordinate) {

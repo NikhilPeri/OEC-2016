@@ -16,7 +16,7 @@ class TrainController {
   
   public Train[] updatePositions(){
     for(int i = 0;  i < trains.size(); i++){
-      Train train = trains.get(i)
+      Train train = trains.get(i);
       for(int j = 0; j < trains.size(); j++){
        if(i != j){
          Train compTrain = trains.get(j);
@@ -25,9 +25,7 @@ class TrainController {
          
        }
       }
-    }
-    return null;
-  }
-  
-  return trains.toArray();
+    }  
+  return (Train[]) (trains.toArray());
+}
 }

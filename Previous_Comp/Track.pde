@@ -34,7 +34,7 @@ class Track{
  }
  
  public String getFlow(){
-  if(isVerical && !isHorizontal){
+  if(isVertical && !isHorizontal){
    if(start.getY() < end.getY()){
     return "SOUTH"; 
    } else {
