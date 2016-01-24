@@ -40,10 +40,7 @@ class Train implements Comparable<Train> {
   }
   
   public Point getFrontPoint() {
-    String direction = track.getFlow();
-    if (direction.equals("EAST") || direction.equals("WEST"))
-      return new Point((int) (track.start.getX()), frontCoordinate);
-    return new Point(frontCoordinate, (int)(track.start.getY()));
+    return convertCoordinateToPoint(frontCoordinate);
   }
 
   public void updateFrontCoordinate(int frontCoordinate) {
@@ -56,7 +53,7 @@ class Train implements Comparable<Train> {
   }
   
   public Point getBackPoint() {
-    return new Point((int) (track.start.getX()), backCoordinate);
+    return convertCoordinateToPoint(backCoordinate);
   }
   
   public void updateBackCoordinate(int backCoordinate) {
@@ -82,6 +79,18 @@ class Train implements Comparable<Train> {
   
   public void setID(int id) {
     this.id = id;
+  }
+  
+  public Point getRedPoint() {
+    return convertCoordinateToPoint(frontCoordinate + (int)(redZone));
+  }
+  
+  public Point getYellowPoint() {
+    return convertCoordinateToPoint(frontCoordinate + (int)(yellowZone));
+  }
+  
+  public Point getBluePoint() {
+    return convertCoordinateToPoint(backCoordinate - (int)(blueZone));
   }
 
   public void accelerate() {
@@ -130,6 +139,13 @@ class Train implements Comparable<Train> {
       yellowZone = 2.3 * speed + 100;
     }
       blueZone = speed == 0 ? 100 : -0.35 * speed + 100;
+  }
+  
+  private Point convertCoordinateToPoint(int coordinate) {
+    String direction = track.getFlow();
+    if (direction.equalsIgnoreCase("east") || direction.equalsIgnoreCase("west"))
+      return new Point((int) (track.start.getX()), coordinate);
+    return new Point(coordinate, (int) (track.start.getY()));    
   }
   
   @Override
