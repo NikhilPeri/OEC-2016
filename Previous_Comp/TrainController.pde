@@ -5,11 +5,12 @@ class TrainController {
   Track[] tracks;
   Train[] trains;
   
-  public TrainController(Track[] tracks){
+  public TrainController(Track[] tracks, Train[] trains){
     this.tracks = tracks;
-    trains = new Train[tracks.length];
-    for(Track track : tracks){
-     
-    }
+    this.trains = trains;
+  }
+  
+  public Train[] updatePositions(){
+    
   }
 }
