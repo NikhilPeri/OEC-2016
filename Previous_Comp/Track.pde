@@ -1,10 +1,10 @@
 import java.util.LinkedList;
 import java.lang.Math;
-import java.awt.Point;
+import java.awt.geom.Point2D;
 
 class Track{
-  public Point start; 
-  public Point end;
+  public Point2D start; 
+  public Point2D end;
   
   public int distance;
   
@@ -14,8 +14,8 @@ class Track{
   public LinkedList<Train> trains;
   
   public Track(int startX, int startY, int endX, int endY){
-   this.start = new Point(startX, startY);
-   this.end = new Point(endX, endY);
+   this.start = new Point2D.Double(startX, startY);
+   this.end = new Point2D.Double(endX, endY);
    
    this.distance = (int)Math.sqrt((Math.pow(startX - endX, 2) + Math.pow(startY - endY, 2)));
    
