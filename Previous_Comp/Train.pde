@@ -107,7 +107,6 @@ class Train implements Comparable<Train> {
     if (speed == 0) {
       redZone = 50.0;
       yellowZone = 100.0;
-      blueZone = 100.0;
     } else if (speed < 31) {
       redZone = 1.1 * speed + 50;
       yellowZone = 1.8 * speed + 100;
