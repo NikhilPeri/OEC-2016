@@ -36,12 +36,12 @@ void draw ()
   
   stroke(255);
   fill(#ED0202);
-  rect(t1[0].startX, t1[0].startY, t1[0].endX - t1[0].startX, t1[0].endY - t1[0].startY + 10);
-  rect(t1[1].startX, t1[1].startY, t1[1].startX - t1[1].endX, t1[1].endY - t1[1].startY + 10);
-  rect(t1[2].startX, t1[2].startY, t1[2].endX - t1[2].startX + 10, t1[2].endY - t1[2].startY);
-  rect(t1[3].startX, t1[3].startY, t1[3].endX - t1[3].startX + 10, t1[3].endY - t1[3].startY);
-  rect(t1[4].startX, t1[4].startY, t1[4].endX - t1[4].startX, t1[4].endY - t1[4].startY + 10);
-  rect(t1[5].startX, t1[5].startY, t1[5].endX - t1[5].startX, t1[5].endY - t1[5].startY + 10);
+  rect(t1[0].getSX(), t1[0].getSY(), t1[0].getEX() - t1[0].getSX(), t1[0].getEY() - t1[0].getSY() + 10);
+  rect(t1[1].getEX(), t1[1].getSY(), t1[1].getSX() - t1[1].getEX(), t1[1].getEY() - t1[1].getSY() + 10);
+  rect(t1[2].getSX(), t1[2].getSY(), t1[2].getEX() - t1[2].getSX() + 10, t1[2].getEY() - t1[2].getSY());
+  rect(t1[3].getSX(), t1[3].getSY(), t1[3].getEX() - t1[3].getSX() + 10, t1[3].getEY() - t1[3].getSY());
+  rect(t1[4].getSX(), t1[4].getSY(), t1[4].getEX() - t1[4].getSX(), t1[4].getEY() - t1[4].getSY() + 10);
+  rect(t1[5].getSX(), t1[5].getSY(), t1[5].getEX() - t1[5].getSX(), t1[5].getEY() - t1[5].getSY() + 10);
   
   stroke(0);
   line (300, 0, 300, 700);

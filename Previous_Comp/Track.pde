@@ -17,7 +17,7 @@ class Track{
    this.start = new Point(startX, startY);
    this.end = new Point(endX, endY);
    
-   this.distance = Math.sqrt((Math.pow(startX - endX, 2) + Math.pow(startY - endY, 2)));
+   this.distance = (int)Math.sqrt((Math.pow(startX - endX, 2) + Math.pow(startY - endY, 2)));
    
    isVertical = (startX == endX);
    isHorizontal = (startY == endY);
@@ -62,6 +62,26 @@ class Track{
  public boolean atEnd(int xPos, int yPos){
   return ((xPos == start.getX())&&(yPos == start.getY()))
           ||((xPos == end.getX())&&(yPos == end.getY()));
+ }
+ 
+ public int getSX()
+ {
+   return (int)this.start.getX();
+ }
+ 
+ public int getSY()
+ {
+   return (int)this.start.getY();
+ }
+ 
+ public int getEX()
+ {
+   return (int)this.end.getX();
+ }
+ 
+ public int getEY()
+ {
+   return (int)this.end.getY();
  }
  
 }
