@@ -1,4 +1,5 @@
 class Train implements Comparable<Train> {
+  
   private static final String MOVING = "In Motion";
   private static final String IDLE = "Idling";
   private static final String OOS = "Out of Service";
@@ -78,7 +79,7 @@ class Train implements Comparable<Train> {
 
   public void activateBreak() {
     while (speed > 0) {
-      slowDown(); //Replace with actual number
+      slowDown();
     }
   }
 
